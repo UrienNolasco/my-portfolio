@@ -1,4 +1,4 @@
-'use client' // Adicione isso para usar Framer Motion
+"use client"; // Adicione isso para usar Framer Motion
 
 import { motion } from "framer-motion";
 
@@ -22,17 +22,18 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Olá, me chamo <span>Urien Nolasco</span>
+            <span className="font-poiret !important">Olá, me chamo </span>
+            <span>Urien Nolasco</span>
           </h1>
 
-          <p className="text-lg md:text-xl leading-relaxed max-w-2xl">
-            Ingressei na faculdade de engenharia de software em 2023/1,
-            desde sempre apaixonado por tecnologia, convivo com a área da
-            programação desde pequeno. Hoje sou desenvolvedor ABAP para uma
-            consultoria SAP, mas nunca deixei de estudar e brincar com o
-            mundo do full stack. Apesar de dizer que sou dev ABAP, prefiro
-            dizer que sou só dev - a linguagem que utilizo é somente um meio
-            para expressar as minhas ideias e criatividade.
+          <p className="md:text-xl leading-relaxed max-w-2xl">
+            Ingressei na faculdade de engenharia de software em 2023/1, desde
+            sempre apaixonado por tecnologia, convivo com a área da programação
+            desde pequeno. Hoje sou desenvolvedor ABAP para uma consultoria SAP,
+            mas nunca deixei de estudar e brincar com o mundo do full stack.
+            Apesar de dizer que sou dev ABAP, prefiro dizer que sou só dev - a
+            linguagem que utilizo é somente um meio para expressar as minhas
+            ideias e criatividade.
           </p>
         </motion.div>
 

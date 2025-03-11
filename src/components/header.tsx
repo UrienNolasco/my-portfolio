@@ -26,8 +26,9 @@ const Header = () => {
       }}
     >
       <Card className="fixed top-0 w-full rounded-none bg-black border-0 z-50">
-        <CardContent className="p-1 flex justify-center items-center gap-6">
-          <nav className="flex space-x-6 text-white">
+        <CardContent className="p-1 flex items-center justify-between">
+          {/* Menu alinhado à esquerda com espaçamento */}
+          <nav className="flex space-x-10 text-white pl-6">
             {["hero", "tecnologias", "projetos", "contato"].map((section) => (
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -39,14 +40,17 @@ const Header = () => {
                 {section === "hero" ? "Início" : section}
               </motion.button>
             ))}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="text-sm font-medium capitalize"
-            >
-              <FileText className="w-6 h-6" />
-            </motion.button>
           </nav>
+
+          {/* Botão "curriculum" na direita com espaçamento */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="text-sm font-medium capitalize flex items-center gap-2 text-white pr-6"
+          >
+            <FileText className="w-5 h-5" />
+            curriculum
+          </motion.button>
         </CardContent>
       </Card>
     </motion.div>
