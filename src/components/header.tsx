@@ -4,6 +4,7 @@ import { Download } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 const Header = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -52,19 +53,36 @@ const Header = () => {
     >
       <Card className="rounded-none bg-black/90 border-0">
         <CardContent className="p-1 flex items-center justify-between pr-10">
-          <nav className="flex space-x-10 text-white pl-6">
-            {["hero", "tecnologias", "projetos", "contato"].map((section) => (
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className="text-sm font-medium capitalize"
-              >
-                {section === "hero" ? "Início" : section}
-              </motion.button>
-            ))}
-          </nav>
+          <div className="flex items-center ml-5">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Image
+                alt="logo"
+                src="/cube-five-svgrepo-com.svg"
+                width={50}
+                height={50}
+                className="mr-4" // adiciona um espaçamento entre a imagem e a nav
+              />
+            </motion.div>
+
+            <nav className="flex space-x-10 text-white ml-24">
+              {["hero", "conhecimento", "projetos", "contato"].map(
+                (section) => (
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className="text-sm font-medium capitalize"
+                  >
+                    {section === "hero" ? "Início" : section}
+                  </motion.button>
+                )
+              )}
+            </nav>
+          </div>
 
           <motion.button
             whileHover={{ scale: 1.1 }}

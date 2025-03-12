@@ -1,8 +1,9 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Projetos from "@/components/projetos";
-import Tecnologias from "@/components/tecnologias";
-import { motion } from "framer-motion";
+
+import Conhecimento from "@/components/conhecimento";
+import Experiencias from "@/components/experiencias";
 
 const Home = () => {
   return (
@@ -13,11 +14,13 @@ const Home = () => {
         <Hero />
 
         {/* Seção Hero */}
-        <Tecnologias />
+        <Conhecimento />
+
+        {/* Seção Experiencias */}
+        <Experiencias />
 
         {/* Seção Projetos */}
         <Projetos />
-
         {/* Seção Contato */}
         <section
           id="contato"
