@@ -11,15 +11,15 @@ const Experiencias = () => {
       data: "2024 - Atual",
     },
     {
-      empresa: "Ages 1",
-      logo: "Logo-ages1.jpg",
+      empresa: "Ages 1 - EASY CHOOSE",
+      logo: "Logo-ages1.svg",
       texto:
         "lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elit",
       data: "Semestre de 2024/1",
     },
     {
-      empresa: "Ages 2",
-      logo: "Logo-ages2.jpg",
+      empresa: "Ages 2 - EZENPLO",
+      logo: "Logo-ages2.svg",
       texto:
         "lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elit",
       data: "Semestre de 2024/2",
@@ -34,7 +34,10 @@ const Experiencias = () => {
       {/* Contêiner do título fixado no topo */}
       <div className="w-full text-center py-9 border-b border-b-neutral-700">
         <h1 className="text-white text-6xl font-bold uppercase">
-          Minhas Experiências
+          Minhas{" "}
+          <span style={{ WebkitTextStroke: "2px white", color: "black" }}>
+            Experiências
+          </span>
         </h1>
       </div>
 
@@ -45,8 +48,8 @@ const Experiencias = () => {
             key={index}
             className="bg-black border border-neutral-700 w-full p-4"
           >
-            <CardContent className="flex items-start gap-4 w-full">
-              <Avatar className="w-12 h-12 ml-2">
+            <CardContent className="flex items-start gap-4 w-full ">
+              <Avatar className="w-12 h-12 ml-2 object-fill">
                 <AvatarImage src={`/${exp.logo}`} alt={exp.empresa} />
               </Avatar>
               <div className="flex-1">

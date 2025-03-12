@@ -4,6 +4,7 @@
 
 @plugin "tailwindcss-animate";
 
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -124,5 +125,19 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: theme("colors.white");
+  }
+
+  .stroke-shadow {
+    text-shadow: -1px -1px 0 theme("colors.white"),
+      1px -1px 0 theme("colors.white"), -1px 1px 0 theme("colors.white"),
+      1px 1px 0 theme("colors.white");
   }
 }
