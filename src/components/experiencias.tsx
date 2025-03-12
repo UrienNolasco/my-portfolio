@@ -1,7 +1,30 @@
+import { Avatar, AvatarImage } from "./ui/avatar";
+import { Card, CardContent } from "./ui/card";
+
 const Experiencias = () => {
-    const experiencias = [
-        {empresa: "Teia Connect", logo: "Logo-teia.jpg", texto: "", data: "2024 - Atual"}
-    ]
+  const experiencias = [
+    {
+      empresa: "Teia Connect",
+      logo: "Logo-teia.jpg",
+      texto:
+        "lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elit",
+      data: "2024 - Atual",
+    },
+    {
+      empresa: "Ages 1",
+      logo: "Logo-ages1.jpg",
+      texto:
+        "lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elit",
+      data: "Semestre de 2024/1",
+    },
+    {
+      empresa: "Ages 2",
+      logo: "Logo-ages2.jpg",
+      texto:
+        "lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elit",
+      data: "Semestre de 2024/2",
+    },
+  ];
 
   return (
     <section
@@ -15,9 +38,29 @@ const Experiencias = () => {
         </h1>
       </div>
 
-      {/* Conteúdo principal (adicione mais elementos aqui) */}
-      <div className="w-full flex-grow flex items-center justify-center">
-        
+      {/* Listagem das experiências */}
+      <div className="w-full flex flex-col items-center gap-6 mt-6">
+        {experiencias.map((exp, index) => (
+          <Card
+            key={index}
+            className="bg-black border border-neutral-700 w-full p-4"
+          >
+            <CardContent className="flex items-start gap-4 w-full">
+              <Avatar className="w-12 h-12 ml-2">
+                <AvatarImage src={`/${exp.logo}`} alt={exp.empresa} />
+              </Avatar>
+              <div className="flex-1">
+                <div className="flex justify-between items-center w-full">
+                  <h2 className="text-white text-xl font-semibold">
+                    {exp.empresa}
+                  </h2>
+                  <span className="text-neutral-400 text-sm">{exp.data}</span>
+                </div>
+                <p className="text-neutral-300 mt-2 text-sm">{exp.texto}</p>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   );
