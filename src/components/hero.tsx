@@ -21,12 +21,12 @@ const Hero = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            <span className="font-poiret !important">Olá, me chamo </span>
-            <span>Urien Nolasco</span>
+          <h1 className="text-4xl md:text-7xl leading-tight">
+            <span className="">Olá, me chamo<br /></span>
+            <span className="font-bold">Urien Nolasco</span>
           </h1>
 
-          <p className="md:text-xl leading-relaxed max-w-2xl">
+          <p className="md:text-base leading-relaxed max-w-2xl">
             Ingressei na faculdade de engenharia de software em 2023/1, desde
             sempre apaixonado por tecnologia, convivo com a área da programação
             desde pequeno. Hoje sou desenvolvedor ABAP para uma consultoria SAP,

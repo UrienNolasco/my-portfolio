@@ -1,33 +1,57 @@
 "use client";
 
-import { FileText } from "lucide-react";
+import { Download } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState, useRef } from "react";
 
 const Header = () => {
+  const [isHidden, setIsHidden] = useState(false);
+  const { scrollY } = useScroll();
+  const lastScrollY = useRef(0);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = lastScrollY.current;
+    const diff = latest - previous;
+
+    if (latest > 100) {
+      if (diff > 0) {
+        // Rolando para baixo
+        setIsHidden(true);
+      } else if (diff < -5) {
+        // Rolando para cima com uma pequena zona morta
+        setIsHidden(false);
+      }
+    } else {
+      // No topo da página
+      setIsHidden(false);
+    }
+
+    lastScrollY.current = latest;
+  });
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    element?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.7,
-        ease: [0.4, 0, 0.2, 1],
-        delay: 0.3,
+      initial={{ y: 0, opacity: 1 }}
+      animate={{
+        y: isHidden ? -100 : 0,
+        opacity: isHidden ? 0 : 1,
       }}
+      transition={{
+        type: "spring",
+        stiffness: 200,
+        damping: 25,
+        mass: 0.5,
+      }}
+      className="fixed top-0 w-full z-50 backdrop-blur-md"
     >
-      <Card className="fixed top-0 w-full rounded-none bg-black border-0 z-50">
-        <CardContent className="p-1 flex items-center justify-between">
-          {/* Menu alinhado à esquerda com espaçamento */}
+      <Card className="rounded-none bg-black/90 border-0">
+        <CardContent className="p-1 flex items-center justify-between pr-10">
           <nav className="flex space-x-10 text-white pl-6">
             {["hero", "tecnologias", "projetos", "contato"].map((section) => (
               <motion.button
@@ -42,14 +66,13 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Botão "curriculum" na direita com espaçamento */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="text-sm font-medium capitalize flex items-center gap-2 text-white pr-6"
+            className="text-sm font-medium capitalize flex items-center gap-2 bg-white text-black px-2 rounded-full py-2"
           >
-            <FileText className="w-5 h-5" />
-            curriculum
+            CV
+            <Download className="w-5 h-5" />
           </motion.button>
         </CardContent>
       </Card>
