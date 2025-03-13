@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Card, CardContent } from "./ui/card";
 
@@ -14,7 +17,7 @@ const Experiencias = () => {
       empresa: "Ages 1 - EASY CHOOSE",
       logo: "Logo-ages1.svg",
       texto:
-        "lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elitlorem ipsum dolor sit amet consectetur adipiscing elit",
+        "Em minha primeira experiência dentro da Agência Experimental de Engenharia de Software (AGES), atuei como AGES 1 no projeto EASY CHOOSE. Durante seu desenvolvimento, utilizamos uma abordagem baseada em Progressive Web App (PWA) com TypeScript e React. Essa combinação foi escolhida para garantir que a aplicação funcionasse de maneira fluida em diferentes dispositivos, como tablets e totens, independentemente do tamanho ou versão, pois seu objetivo era funcionar em totens de diferentes tamanhos. O uso do PWA permitiu explorar recursos tanto nativos quanto web, oferecendo uma experiência de usuário intuitiva e interativa, essencial para auxiliar os consumidores na escolha dos suplementos alimentares e promover a educação sobre suas necessidades. No back-end, optamos por utilizar o PostgreSQL como sistema gerenciador de banco de dados (SGBD) e o Prisma como ORM. O PostgreSQL foi selecionado por sua robustez, flexibilidade e conformidade com os padrões SQL, fatores essenciais para assegurar a integridade e segurança dos dados. Já o Prisma proporcionou uma camada de abstração que facilitou a interação com o banco de dados, acelerando o desenvolvimento e simplificando a manutenção do projeto. Essa integração de tecnologias modernas foi fundamental para a criação de uma solução confiável e eficiente, capaz de atender às demandas de um público diversificado.",
       data: "Semestre de 2024/1",
     },
     {
@@ -42,7 +45,7 @@ const Experiencias = () => {
       </div>
 
       {/* Listagem das experiências */}
-      <div className="w-full flex flex-col items-center gap-6 mt-6">
+      <motion.div className="w-full flex flex-col items-center gap-6 mt-6">
         {experiencias.map((exp, index) => (
           <Card
             key={index}
@@ -59,12 +62,14 @@ const Experiencias = () => {
                   </h2>
                   <span className="text-neutral-400 text-sm">{exp.data}</span>
                 </div>
-                <p className="text-neutral-300 mt-2 text-sm">{exp.texto}</p>
+                <p className="text-neutral-300 mt-2 text-sm text-justify">
+                  {exp.texto}
+                </p>
               </div>
             </CardContent>
           </Card>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

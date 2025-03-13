@@ -51,7 +51,7 @@ const Header = () => {
       }}
       className="fixed top-0 w-full z-50 backdrop-blur-md"
     >
-      <Card className="rounded-none bg-black/90 border-0">
+      <Card className="rounded-none bg-black/90 border-0 p-3">
         <CardContent className="p-1 flex items-center justify-between pr-10">
           <div className="flex items-center ml-5">
             <motion.div
